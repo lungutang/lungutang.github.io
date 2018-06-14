@@ -13,6 +13,10 @@
     
 
     
+        <meta name="description" content="这里主要记录一下平常做业务过程中踩到的坑以及解决方案。
+1. fixed元素作为有transform属性的元素的子元素时，fixed属性会失效。表现同absolute。解决方案：不要将fixed元素包含在transform元素里面。
+2. 文字设置垂直居中，在pc和ios上都表现正常，安卓上显示会向"/>
+    
 
     <!--Author-->
     
@@ -21,10 +25,14 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Hexo"/>
+        <meta property="og:title" content="移动端bug汇总"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="这里主要记录一下平常做业务过程中踩到的坑以及解决方案。
+1. fixed元素作为有transform属性的元素的子元素时，fixed属性会失效。表现同absolute。解决方案：不要将fixed元素包含在transform元素里面。
+2. 文字设置垂直居中，在pc和ios上都表现正常，安卓上显示会向"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +40,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +59,7 @@
 
     <!-- Title -->
     
-    <title>Hexo</title>
+    <title>移动端bug汇总 - Hexo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -154,81 +162,82 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Hexo</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>移动端bug汇总</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-06-13
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2018/06/13/frontBugCollect/">
-        <h2 class="post-title">
-            移动端bug汇总
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-06-13
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/06/08/mobileAdapt/">
-        <h2 class="post-title">
-            mobileAdapt
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-06-08
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/06/05/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-06-05
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-    
-</ul>
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>这里主要记录一下平常做业务过程中踩到的坑以及解决方案。</p>
+<h3 id="1-fixed元素作为有transform属性的元素的子元素时，fixed属性会失效。表现同absolute。"><a href="#1-fixed元素作为有transform属性的元素的子元素时，fixed属性会失效。表现同absolute。" class="headerlink" title="1. fixed元素作为有transform属性的元素的子元素时，fixed属性会失效。表现同absolute。"></a>1. fixed元素作为有transform属性的元素的子元素时，fixed属性会失效。表现同absolute。</h3><p>解决方案：<font color="red">不要将fixed元素包含在transform元素里面。</font></p>
+<h3 id="2-文字设置垂直居中，在pc和ios上都表现正常，安卓上显示会向上偏移。"><a href="#2-文字设置垂直居中，在pc和ios上都表现正常，安卓上显示会向上偏移。" class="headerlink" title="2. 文字设置垂直居中，在pc和ios上都表现正常，安卓上显示会向上偏移。"></a>2. 文字设置垂直居中，在pc和ios上都表现正常，安卓上显示会向上偏移。</h3><p>解决方案：</p>
+<ol>
+<li>设置将元素的宽高和字体大小都放大两倍，然后用transform的scale缩小一倍，这样能缩小偏移的尺寸（并不能避免）。</li>
+<li>针对Android 7.0+设备：<code>&lt;html&gt;</code>上设置 lang 属性：<code>&lt;html lang=&quot;zh-cmn-Hans&quot;&gt;</code>，同时font-family不指定英文（亲测有效,单仅针对android 7.0以上系统），原理见<a href="https://www.zhihu.com/question/39516424" target="_blank" rel="noopener">链接</a>。</li>
+<li>其他的一些hack方法。比如手动设置padding,合理安排间距等。网上说的table-cell,flex布局等都无效</li>
+</ol>
+<h3 id="3-用flex布局做定宽右自适应，如果右边没有写flex-1来合理安排间距的话，右边内容过长时左边定宽内容会被缩小。"><a href="#3-用flex布局做定宽右自适应，如果右边没有写flex-1来合理安排间距的话，右边内容过长时左边定宽内容会被缩小。" class="headerlink" title="3. 用flex布局做定宽右自适应，如果右边没有写flex:1来合理安排间距的话，右边内容过长时左边定宽内容会被缩小。"></a>3. 用flex布局做定宽右自适应，如果右边没有写flex:1来合理安排间距的话，右边内容过长时左边定宽内容会被缩小。</h3><p>解决方案：</p>
+<ol>
+<li>右边设置flex:1让内容合理分配空间</li>
+<li>左边定宽元素设置flex-shrink：0不让定宽项目缩小</li>
+</ol>
+<h3 id="4-移动端option元素没办法隐藏"><a href="#4-移动端option元素没办法隐藏" class="headerlink" title="4. 移动端option元素没办法隐藏"></a>4. 移动端option元素没办法隐藏</h3><p>解决方案：</p>
+<ol>
+<li>设置给option元素设置disabled属性(规避了问题，并没有解决)</li>
+<li>将对应的option直接remove掉</li>
+</ol>
+<p>方案2在select有默认值而且该默认值不出现在下拉框中时不适用，因为如果option中没有该选项，就不会作为默认值出现在select框中了，所以我选择了方案1（或者模拟个select选择框）</p>
+<h3 id="5-rem计算后得到px为小数时产生的每个元素大小不一样的问题（详情请看rem-产生的小数像素问题）"><a href="#5-rem计算后得到px为小数时产生的每个元素大小不一样的问题（详情请看rem-产生的小数像素问题）" class="headerlink" title="5. rem计算后得到px为小数时产生的每个元素大小不一样的问题（详情请看rem 产生的小数像素问题）"></a>5. rem计算后得到px为小数时产生的每个元素大小不一样的问题（详情请看<a href="http://taobaofed.org/blog/2015/11/04/mobile-rem-problem/" target="_blank" rel="noopener">rem 产生的小数像素问题</a>）</h3><p>解决方案：</p>
+<ol>
+<li>使用iconfont</li>
+<li>对于出问题的元素把小数像素转化为整数（很hack）</li>
+</ol>
+<h3 id="6-一个页面中有一个导航栏，当页面滚动一定距离后，让该导航栏固定在指定位置。"><a href="#6-一个页面中有一个导航栏，当页面滚动一定距离后，让该导航栏固定在指定位置。" class="headerlink" title="6. 一个页面中有一个导航栏，当页面滚动一定距离后，让该导航栏固定在指定位置。"></a>6. 一个页面中有一个导航栏，当页面滚动一定距离后，让该导航栏固定在指定位置。</h3><p>解决方案：<br>1.监听页面的scroll事件，判断滚动距离，滚动距离为预期偏移值后给导航栏设置position:fixed;(ios上过渡效果不平滑)<br>2.给导航栏设置position:sticky;top:0（指定位置偏移值）具体注意事项见：<a href="http://feg.netease.com/archives/377.html" target="_blank" rel="noopener">position:sticky的使用</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
