@@ -222,7 +222,7 @@
 <li>对于出问题的元素把小数像素转化为整数（很hack）</li>
 </ol>
 <h3 id="6-一个页面中有一个导航栏，当页面滚动一定距离后，让该导航栏固定在指定位置。"><a href="#6-一个页面中有一个导航栏，当页面滚动一定距离后，让该导航栏固定在指定位置。" class="headerlink" title="6. 一个页面中有一个导航栏，当页面滚动一定距离后，让该导航栏固定在指定位置。"></a>6. 一个页面中有一个导航栏，当页面滚动一定距离后，让该导航栏固定在指定位置。</h3><p>解决方案：<br>1.监听页面的scroll事件，判断滚动距离，滚动距离为预期偏移值后给导航栏设置position:fixed;(ios上过渡效果不平滑)<br>2.给导航栏设置position:sticky;top:0（指定位置偏移值）具体<font color="red">兼容性</font>等注意事项见：<a href="http://feg.netease.com/archives/position-sticky.html" target="_blank" rel="noopener">position:sticky的使用</a></p>
-<h3 id="7-通过overflow-scroll滚动的元素，滚动时比较卡顿"><a href="#7-通过overflow-scroll滚动的元素，滚动时比较卡顿" class="headerlink" title="7.通过overflow:scroll滚动的元素，滚动时比较卡顿"></a>7.通过overflow:scroll滚动的元素，滚动时比较卡顿</h3><p>解决方案：<br>1.给滚动元素添加-webkit-overflow-scrolling: touch;可使元素惯性滑动。</p>
+<h3 id="7-通过overflow-scroll滚动的元素，滚动时比较卡顿"><a href="#7-通过overflow-scroll滚动的元素，滚动时比较卡顿" class="headerlink" title="7.通过overflow:scroll滚动的元素，滚动时比较卡顿"></a>7.通过overflow:scroll滚动的元素，滚动时比较卡顿</h3><p>解决方案：<br>1.给滚动元素添加-webkit-overflow-scrolling: touch;可使元素惯性滑动。<br>该解决方案在ios移动端<font color="red">引起的问题</font>：<br>如果通过scrollTop手动设置容器的滚动高度，1.页面滚动之后可能会出现空白；2.部分机型设置scrollTop无效（scrollTop值已经改变，页面不会滚动）<br>解决方案：在手动设置scrollTop之前将-webkit-overflow-scroll的值改为auto,改变了scrollTop之后-webkit-overflow-scroll再改为touch; </p>
 
 
                 
