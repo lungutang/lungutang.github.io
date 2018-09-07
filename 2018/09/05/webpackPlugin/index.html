@@ -13,6 +13,11 @@
     
 
     
+        <meta name="description" content="1. html-webpack-plugin主要作用：
+
+为html文件中引入的外部资源如script、link动态添加每次compile后的hash，防止引用缓存的外部文件问题
+可以生成创建html入口文件，比如单页面可以生成一个html文件入口，配置N个html-webpack-plugin可以"/>
+    
 
     <!--Author-->
     
@@ -21,10 +26,15 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Hexo"/>
+        <meta property="og:title" content="webpack常用插件"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1. html-webpack-plugin主要作用：
+
+为html文件中引入的外部资源如script、link动态添加每次compile后的hash，防止引用缓存的外部文件问题
+可以生成创建html入口文件，比如单页面可以生成一个html文件入口，配置N个html-webpack-plugin可以"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +42,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>Hexo</title>
+    <title>webpack常用插件 - Hexo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -154,96 +164,71 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Hexo</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>webpack常用插件</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-09-05
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2018/09/05/webpackPlugin/">
-        <h2 class="post-title">
-            webpack常用插件
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-09-05
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/09/05/vue-multiple/">
-        <h2 class="post-title">
-            用vue构建多页面应用
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-09-05
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/06/13/frontBugCollect/">
-        <h2 class="post-title">
-            移动端bug汇总
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-06-13
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/06/05/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-06-05
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-    
-</ul>
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="1-html-webpack-plugin"><a href="#1-html-webpack-plugin" class="headerlink" title="1. html-webpack-plugin"></a>1. html-webpack-plugin</h3><p>主要作用：</p>
+<ol>
+<li>为html文件中引入的外部资源如script、link动态添加每次compile后的hash，防止引用缓存的外部文件问题</li>
+<li>可以生成创建html入口文件，比如单页面可以生成一个html文件入口，配置N个html-webpack-plugin可以生成N个页面入口</li>
+</ol>
+<p>配置项：</p>
+<ol>
+<li>title:设置生成的 html 文件的标题</li>
+<li>filename:生成 html 文件的文件名。默认为 index.html</li>
+<li>template:根据指定的模板文件来生成特定的 html 文件。模板类型可以是 html, jade, ejs 等等（使用自定义模板时应该安装对应的loader，否则webpack不能正确解析）</li>
+</ol>
+<p>以jade为例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install jade-loader --save-dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">loaders: &#123;</span><br><span class="line">    ...</span><br><span class="line">    &#123;</span><br><span class="line">        test: /\.jade$/,</span><br><span class="line">        loader: &apos;jade&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">plugins: [</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">        ...</span><br><span class="line">        jade: &apos;path/to/yourfile.jade&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>如果既指定了 template 选项，又指定了 title 选项，webpack 会选择你指定的模板文件的 title, 即使你的模板文件中未设置 title。<br>filename也不会被覆盖，会以指定的 filename 作为文件名。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
